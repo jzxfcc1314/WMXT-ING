@@ -5,6 +5,10 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
   <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.sxdx.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.sxdx.servlet.LoginServlet</servlet-class>
   </servlet>
@@ -18,7 +22,10 @@
   </servlet>
 
 
-
+	<servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/registerservlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/loginservlet</url-pattern>

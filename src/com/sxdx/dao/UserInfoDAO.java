@@ -32,4 +32,34 @@ public class UserInfoDAO {
 		}
 		return flag;
 	}
+	
+	public boolean AddNewUser(String username,String userpass){
+		Connection conn=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		boolean flag = false;
+		try
+		{
+			conn=BaseDAO.getConn();
+			System.out.println("begin register");
+			ps=conn.prepareStatement("insert into UserInfo values (?, ?, ?)");
+			ps.setString(1, "3");
+			ps.setString(2, username);
+			ps.setString(3, userpass);
+			//rs=ps.executeQuery();
+			int sult=ps.executeUpdate();
+			System.out.println(sult);
+			if(sult>0)
+			{
+				flag=true;
+			}
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}finally
+		{
+			BaseDAO.closeAll(conn, ps, rs);
+		}
+		return flag;
+	}
 }

@@ -2,7 +2,7 @@ package com.sxdx.vo;
 
 public class FoodInfo {
 	private String foodID;
-	private String foodName;	
+	private String foodName;
 	private String remark;
 	private double foodPrice;	
 	private String description;	
@@ -42,6 +42,5 @@ public class FoodInfo {
 	}
 	public void setFoodImage(String foodImage) {
 		this.foodImage = foodImage;
-	}	
-			
+	}
 }

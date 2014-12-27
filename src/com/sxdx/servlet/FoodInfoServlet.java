@@ -49,7 +49,7 @@ public class FoodInfoServlet extends HttpServlet {
 		String op=request.getParameter("op");
 		if(op.equals("reg"))
 		{
-			String customerName=request.getParameter("customerName") ;
+			String customerName=request.getParameter("customerName");
 			String address=request.getParameter("address");
 			 String zipCode=request.getParameter("zipCode");
 			 String telephone=request.getParameter("telephone");
@@ -82,6 +82,12 @@ public class FoodInfoServlet extends HttpServlet {
 			request.setAttribute("foodlist", foodlist);
 			request.getRequestDispatcher("/showfood.jsp").forward(request, response);
 		}
+		/*
+		if(op.equals("register"))
+		{
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+		}
+		*/
 	}
 
 	/**

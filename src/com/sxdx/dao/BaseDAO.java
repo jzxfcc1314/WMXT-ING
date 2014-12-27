@@ -15,7 +15,7 @@ public class BaseDAO {
 			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println("Driver loaded");
 			conn=DriverManager.getConnection("jdbc:mysql://localhost/waimai","root","jizhixiang");
-			System.out.println("Database connected");			
+			System.out.println("Database connected");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -48,11 +48,12 @@ public class LoginServlet extends HttpServlet {
 		boolean flag=userDAO.checkLogin(username, userpass);
 		if(flag)
 		{
+			System.out.println("Register success");
 			request.getRequestDispatcher("/foodinfoservlet").forward(request, response);
 		}else
 		{
 			System.out.println("Login failed");
-			response.sendRedirect("/WMXT/index.jsp");
+			response.sendRedirect("/WMXT/login.jsp");
 		}
 	}
 

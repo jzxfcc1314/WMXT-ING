@@ -1,22 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8" contentType="text/html; charset=utf-8"%>
-
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-    
-    <title>My JSP 'index.jsp' starting page</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-  </head>
-  
-  <body style="width:760px; height:700px; text-align: center;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+ <body style="width:760px; height:700px; text-align: center;">
 
    <div style="width:760px; align="center">
 	   <div style="height:141px;">
@@ -33,10 +22,10 @@
 		   	<div style="height:20px; background-color:#AAB9BD">
 		   	我学我会网上订餐系统用户请直接登录
 		   	</div>
-		   	<form action="/WMXT/registerservlet?op=register" method="post" style="height: 129px; width:300px; ">
+		   	<form action="/WMXT/loginservlet?op=login" method="post" style="height: 129px; width:300px; ">
 		   		<br/>用户名：<input type="text" name="username" style="border:1px solid #666666; size: 17px;"  /><br/><br/>
 		   		密&nbsp;&nbsp;码:&nbsp;&nbsp;&nbsp;<input type="password" name="userpass"  style="border:1px solid #666666;size: 17px;" /><br/><br/>
-		   		<input type="submit" value="注册">
+		   		<input type="submit" value="登录">
 		   	</form>
 		   </div>
 	   </div>
