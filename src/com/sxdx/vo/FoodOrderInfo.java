@@ -4,11 +4,11 @@ public class FoodOrderInfo {
 	private int orderID;
 	private String customerName;
 	private String address;
-	private String zipCode;
 	private String telephone;
-	private String movePhone;
-	private String notice;
+	private String allFoodInfo;
 	private double totalPrice;
+	private String wordLeft;
+	private String state;
 	public int getOrderID() {
 		return orderID;
 	}
@@ -27,29 +27,17 @@ public class FoodOrderInfo {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getZipCode() {
-		return zipCode;
-	}
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
 	public String getTelephone() {
 		return telephone;
 	}
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	public String getMovePhone() {
-		return movePhone;
+	public String getAllFoodInfo() {
+		return allFoodInfo;
 	}
-	public void setMovePhone(String movePhone) {
-		this.movePhone = movePhone;
-	}
-	public String getNotice() {
-		return notice;
-	}
-	public void setNotice(String notice) {
-		this.notice = notice;
+	public void setAllFoodInfo(String allFoodInfo) {
+		this.allFoodInfo = allFoodInfo;
 	}
 	public double getTotalPrice() {
 		return totalPrice;
@@ -57,18 +45,27 @@ public class FoodOrderInfo {
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	public FoodOrderInfo(String customerName, String address,
-			String zipCode, String telephone, String movePhone, String notice,
-			double totalPrice) {
+	public String getWordLeft() {
+		return wordLeft;
+	}
+	public void setWordLeft(String wordLeft) {
+		this.wordLeft = wordLeft;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public FoodOrderInfo(String customerName, String address,String telephone, 
+			String allFoodInfo, double totalPrice, String wordLeft, String state) {
 		super();
-		this.orderID = orderID;
 		this.customerName = customerName;
 		this.address = address;
-		this.zipCode = zipCode;
 		this.telephone = telephone;
-		this.movePhone = movePhone;
-		this.notice = notice;
+		this.allFoodInfo = allFoodInfo;
 		this.totalPrice = totalPrice;
+		this.wordLeft = wordLeft;
+		this.state = state;
 	}
-
 }

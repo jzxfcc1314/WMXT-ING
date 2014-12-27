@@ -17,15 +17,16 @@ public class FoodOrderInfoDAO {
 		{
 			conn=BaseDAO.getConn();
 			System.out.println("begin insert into order");
-			ps=conn.prepareStatement("insert into foodOrderInfo values(?,?,?,?,?,?,?,?)");
-			ps.setString(1, "0");
-			ps.setString(2, foodOrderinfo.getCustomerName());
-			ps.setString(3, foodOrderinfo.getAddress());
-			ps.setString(4, foodOrderinfo.getZipCode());
-			ps.setString(5, foodOrderinfo.getTelephone());
-			ps.setString(6, foodOrderinfo.getMovePhone());
-			ps.setString(7, foodOrderinfo.getNotice());
-			ps.setDouble(8, foodOrderinfo.getTotalPrice());
+			ps=conn.prepareStatement("insert into foodOrderInfo "
+					+ "(customerName,address,telephone,allFoodInfo,totalPrice,wordLeft,state) "
+					+ "values(?,?,?,?,?,?,?)");
+			ps.setString(1, foodOrderinfo.getCustomerName());
+			ps.setString(2, foodOrderinfo.getAddress());
+			ps.setString(3, foodOrderinfo.getTelephone());
+			ps.setString(4, foodOrderinfo.getAllFoodInfo());
+			ps.setDouble(5, foodOrderinfo.getTotalPrice());
+			ps.setString(6, foodOrderinfo.getWordLeft());
+			ps.setString(7, foodOrderinfo.getState());
 			int sult=ps.executeUpdate();
 			System.out.println(sult);
 			if(sult>0)

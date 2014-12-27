@@ -5,10 +5,10 @@
 <body style="text-align: center;">
 	<div id="top" style=" height:141px; width:760px; margin:0px auto;" >
 		<div id="top_top" style=" position:relative; width:760px; height:99px;" >
-			<div style="background-image:url(images/jb_logo.jpg); width:220px; height:99px;float:left;">
+			<div style="background-image:url(images/logo.jpg); width:220px; height:99px;float:left;">
 			</div>
 			<div style="float:right; padding-top:35px; width:530px; ">&nbsp; 
-				<span style="font-size:32px; font-style:italic; font-weight:bold; color:red;">我学我会&nbsp;</span>
+				<span style="font-size:32px; font-style:italic; font-weight:bold; color:red;">饱了么&nbsp;</span>
 				<span style="font-size:32px;  font-weight:bold;">网上订餐系统</span>
 			</div>
 			

@@ -5,7 +5,7 @@
 <html>
   <head>
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>index.jsp</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -21,7 +21,7 @@
    <div style="width:760px; align="center">
 	   <div style="height:141px;">
 	   	<%@ include file="top.jsp" %>
-	   </div>
+	   </div>	      
 	   <div id="centent" style="width:760px;height:100%; position:relative;">
 		   <div style=" width:160px; height:240px; position:absolute; left:0px;top:0px; float:left;">
 		   <%@ include file="left.jsp" %>
@@ -31,17 +31,21 @@
 		   </div>
 		   <div style="width:600px; height:240px;float:right;">
 		   	<div style="height:20px; background-color:#AAB9BD">
-		   	我学我会网上订餐系统用户请直接登录
+		   	饱了么 网上订餐系统用户请直接登录
 		   	</div>
-		   	<form action="/WMXT/registerservlet?op=register" method="post" style="height: 129px; width:300px; ">
+		   	<form action="/WMXT/loginservlet?op=login" method="post" style="height: 129px; width:300px; ">
 		   		<br/>用户名：<input type="text" name="username" style="border:1px solid #666666; size: 17px;"  /><br/><br/>
-		   		密&nbsp;&nbsp;码:&nbsp;&nbsp;&nbsp;<input type="password" name="userpass"  style="border:1px solid #666666;size: 17px;" /><br/><br/>
-		   		<input type="submit" value="注册">
+		   		密&nbsp;&nbsp;码：&nbsp;&nbsp;&nbsp;<input type="password" name="userpass"  style="border:1px solid #666666;size: 17px;" /><br/><br/>
+		   		<input type="submit" value="登录">
 		   	</form>
+		   	<input type="button" value="注册" onclick="register()" />
+		   	<script type="text/javascript">
+				function register()
+				{
+					window.location="/WMXT/register.jsp?op=register}";
+				}
+			</script>
 		   </div>
-	   </div>
-	   <div>
-	   <%@ include file="bottom.jsp" %>
 	   </div>
    </div>
  

@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import com.sxdx.vo.FoodInfo;
 
 public class FoodInfoDAO {
-	//根据编号查询食物信息
-	public FoodInfo selectFoodById(String foodid)
+	public FoodInfo selectFoodById(int foodid)
 	{
 		Connection conn=null;
 		PreparedStatement ps=null;
@@ -19,17 +18,19 @@ public class FoodInfoDAO {
 		{
 			conn=BaseDAO.getConn();
 			ps=conn.prepareStatement("select * from foodInfo where foodID="+foodid+"");
-			//ps.setString(1, foodid);
 			rs=ps.executeQuery();
 			if(rs.next())
 			{
 				food=new FoodInfo();
-				food.setFoodID(rs.getString(1));
+				food.setFoodID(rs.getInt(1));
 				food.setFoodName(rs.getString(2));
-				food.setRemark(rs.getString(3));
-				food.setFoodPrice(rs.getDouble(4));
+				food.setFoodPrice(rs.getDouble(3));
+				food.setIngredient(rs.getString(4));
 				food.setDescription(rs.getString(5));
-				food.setFoodImage(rs.getString(6));
+				food.setSoldNum(rs.getInt(6));
+				food.setGoodNum(rs.getInt(7));
+				food.setIsLeft(rs.getBoolean(8));
+				food.setFoodImage(rs.getString(9));
 			}
 		}catch(Exception ex)
 		{
@@ -40,7 +41,7 @@ public class FoodInfoDAO {
 		}
 		return food;
 	}
-	//查询所有食物信息
+
 	public ArrayList<FoodInfo> selectAllFood()
 	{
 		Connection conn=null;
@@ -55,12 +56,15 @@ public class FoodInfoDAO {
 			while(rs.next())
 			{
 				FoodInfo food=new FoodInfo();
-				food.setFoodID(rs.getString(1));
+				food.setFoodID(rs.getInt(1));
 				food.setFoodName(rs.getString(2));
-				food.setRemark(rs.getString(3));
-				food.setFoodPrice(rs.getDouble(4));
+				food.setFoodPrice(rs.getDouble(3));
+				food.setIngredient(rs.getString(4));
 				food.setDescription(rs.getString(5));
-				food.setFoodImage(rs.getString(6));
+				food.setSoldNum(rs.getInt(6));
+				food.setGoodNum(rs.getInt(7));
+				food.setIsLeft(rs.getBoolean(8));
+				food.setFoodImage(rs.getString(9));
 				foodlist.add(food);
 			}
 		}catch(Exception ex)

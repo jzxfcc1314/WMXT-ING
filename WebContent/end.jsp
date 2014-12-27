@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		   </div>
 		   <div style="width:600px; height:200px;float:right;">
 		   	<div style="height:20px; background-color:#AAB9BD">
-		   	我学我会网上订餐系统欢迎您的再次光临
+		   	饱了么 网上订餐系统欢迎您的再次光临
 		   	</div>
 		   	<c:if test="${requestScope.fail==null}">
 		   	<h2 style="text-align:center;">感谢您的惠顾祝您</h2>
@@ -57,9 +57,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		   	<h1>${requestScope.fail}</h1>
 		   	</c:if>
 		   </div>
-	   </div>
-	   <div>
-	   <%@ include file="bottom.jsp" %>
 	   </div>
    </div>
 

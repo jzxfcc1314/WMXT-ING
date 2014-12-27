@@ -5,7 +5,7 @@
 <html>
   <head>
     
-    <title>My JSP 'endmoney.jsp' starting page</title>
+    <title>endmoney.jsp</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,6 +23,7 @@
   
   <body style="width:760px; height:700px; text-align: center;">
   <% double moneys=Double.parseDouble(request.getParameter("total")) ; %>
+  <% String allFoodInfo=request.getParameter("allFoodInfo") ; %>
 
     <div style="width:760px; height:600px;text-align:center; ">
 	   <div style="height:141px;">
@@ -37,27 +38,29 @@
 		   </div>
 		   <div style="width:600px; height:200px;float:right;">
 		   	<div style="height:20px; background-color:#AAB9BD">
-		   	请确认配送和支付信息
+		   	请填写并确认您的信息
 		   	</div>
 		   	<form action="/WMXT/foodinfoservlet?op=reg" method="post" style="border:1px solid red;">
 		   		<table >
 		   		<tr><td style="text-align:right;">订餐人：</td><td><input type="text" name="customerName"/></td></tr>
-		   		<tr><td style="text-align:right;">送货地址：</td><td><input type="text" name="address"/></td></tr>
-		   		<tr><td style="text-align:right;">邮政编码：</td><td><input type="text" name="zipCode"/></td></tr>
+		   		<tr><td style="text-align:right;">送餐地址：</td><td><input type="text" name="address"/></td></tr>
 		   		<tr><td style="text-align:right;">联系电话：</td><td><input type="text" name="telephone"/></td></tr>
-		   		<tr><td style="text-align:right;">移动电话：</td><td><input type="text" name="movePhone"/></td></tr>
-		   		<tr><td style="text-align:right;">付款金额：</td><td ><input type="text" name="totalPrice" value="<%=moneys %>" />元</td></tr>
-		   		<tr><td style="text-align:right;">配送方式：</td><td><input type="text" value="送餐上门" style="margin-left:10px;margin-right:20px;width:100px;"/><input style="width:100px;" type="text" value="10元起送"/></td></tr>
-		   		<tr><td style="text-align:right;">支付方式：</td><td><input type="text" value="餐到付款" style="margin-left:10px;margin-right:20px;width:100px;"/><input style="width:100px;" type="text" value="仅限北京3环内"/></td></tr>
-		   		<tr><td style="text-align:right;">订单附言：</td><td><textarea rows="5" cols="37"></textarea> </td></tr>
+		   		<tr><td style="text-align:right;">菜品信息：</td><td><input type="text" name="allFoodInfo" value="<%=allFoodInfo %>"/></td></tr>
+		   		<tr><td style="text-align:right;">付款金额：</td><td><input type="text" name="totalPrice" value="<%=moneys %>" />元</td></tr>
+		   		<tr><td style="text-align:right;">订单留言：</td><td><textarea rows="3" cols="37"></textarea> </td></tr>
 		   		
 		   		</table>
-		   		<input type="submit"value="确认以上信息无误，提交"/>
+		   		<input type="submit"value="提交"/>
 		   	</form>
+		   	
+		   	<input type="button" value="返回购物车" onclick="returnCart()" />
+		   		<script type="text/javascript">
+				function returnCart()
+				{
+					window.location="/WMXT/showcart.jsp";
+				}
+			</script>
 		   </div>
-	   </div>
-	   <div>
-	   <%@ include file="bottom.jsp" %>
 	   </div>
    </div>
 

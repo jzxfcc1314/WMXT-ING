@@ -30,7 +30,7 @@ create table FoodOrderInfo(
 	orderID int not null auto_increment primary key,
     customerName char(20) not null,
     address char(30) not null,
-    telephonr char(20) not null,
+    telephone char(20) not null,
     allFoodInfo char(50) not null,
     totalPrice double not null,
     wordLeft char(20),
@@ -41,9 +41,9 @@ insert into UserInfo (loginName,loginPass,address,telephone,photo)
 values ('qwer','qwer','南大','15912341234','safsaf');
 
 insert into FoodInfo (foodName,foodPrice,ingredient,description,soldNum,goodNum,isLeft,foodImage)
-values ('酸辣土豆丝','10.00','土豆 青椒','酸辣','0','0','true','500008.jpg');
+values ('酸辣土豆丝','10.00','土豆 青椒','酸辣','0','0',true,'500008.jpg');
 insert into FoodInfo (foodName,foodPrice,ingredient,description,soldNum,goodNum,isLeft,foodImage)
-values ('酸菜鱼','18.00','黑鱼 酸菜','中辣','0','0','true','500023.jpg');
+values ('酸菜鱼','18.00','黑鱼 酸菜','中辣','0','0',true,'500023.jpg');
     
     
     

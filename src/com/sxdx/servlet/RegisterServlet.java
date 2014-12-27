@@ -27,24 +27,21 @@ public class RegisterServlet extends HttpServlet{
 		request.setCharacterEncoding("utf-8");
 		String username=request.getParameter("username");
 		String userpass=request.getParameter("userpass");
+		String address=request.getParameter("address");
+		String telephone=request.getParameter("telephone");
+		String photo=request.getParameter("photo");
 		UserInfoDAO userDAO=new UserInfoDAO();
 		System.out.println(username);
 		System.out.println(userpass);
-		boolean flag = userDAO.AddNewUser(username, userpass);
+		boolean flag = userDAO.AddNewUser(username, userpass,address,telephone,photo);
 		if (flag) {
 			System.out.println("Register success");
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 		else {
 			System.out.println("Register failed");
-			response.sendRedirect("/WMXT/index.jsp");
+			response.sendRedirect("/WMXT/register.jsp");
 		}
-		/*
-		String op=request.getParameter("op");
-		if(op.equals("register")) {
-			request.getRequestDispatcher("/loginservlet").forward(request, response);
-		}
-		*/
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

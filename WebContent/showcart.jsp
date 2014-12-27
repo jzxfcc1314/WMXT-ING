@@ -6,7 +6,7 @@
   <head>
     
     
-    <title>My JSP 'showcart.jsp' starting page</title>
+    <title>showcart.jsp</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -46,6 +46,8 @@
 		   		<tr style="background-color:#b6aeae;"><th>商品编号</th><th>商品名称</th><th>商品单价</th><th>商品数量</th><th>商品金额</th></tr>
 		   		<% double total=0;  pageContext.setAttribute("total",total);
 		   		%>
+		   		<% String allFoodInfo="";  pageContext.setAttribute("allFoodInfo",allFoodInfo);
+		   		%>
 		   		<c:forEach var="food"  items="${sessionScope.cart}"  >
 		   		<tr>
 		   		<td>${food.key }</td>
@@ -64,7 +66,10 @@
 			   			{
 				   			Item item=(Item)map.get(kes[i]);
 				   			total=total+item.getFoodInfo().getFoodPrice()*item.getCount();
+				   			allFoodInfo=allFoodInfo+item.getFoodInfo().getFoodName()+"，"
+				   						+item.getFoodInfo().getFoodPrice()+"元/份，"+item.getCount()+"份；";
 				   		 	pageContext.setAttribute("total",total);
+				   		 	pageContext.setAttribute("allFoodInfo",allFoodInfo);
 			   			}
    					}  
 		   		%>
@@ -86,7 +91,7 @@
 		   			<script type="text/javascript">
 						   function endmoney()
 						   {
-						   	window.location="/WMXT/endmoney.jsp?total=${pageScope.total }";
+						   	window.location="/WMXT/endmoney.jsp?total=${pageScope.total }&allFoodInfo=${pageScope.allFoodInfo }";
 						   }
 					</script>
 		   		</div>
@@ -94,9 +99,6 @@
 		   	
 		   	
 		   </div>
-	   </div>
-	   <div>
-	   <%@ include file="bottom.jsp" %>
 	   </div>
    </div>
   </body>

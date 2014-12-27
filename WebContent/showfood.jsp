@@ -36,7 +36,7 @@
 	   <div style="height:141px;">
 	   	<%@ include file="top.jsp" %>
 	   </div>
-	   <div id="centent" style="width:760px;  position:relative;">
+	   <div id="centent" style="width:760px;  position:relative;">			
 		   <div style=" width:160px; height:240px; position:absolute; left:0px;top:0px; float:left;">
 		   <%@ include file="left.jsp" %>
 		   </div>
@@ -57,23 +57,25 @@
 			   		<img src="images/${food.foodImage }" width="90" height="110" /><br/><br/>
 			   		编号：${food.foodID }
 			   		</div>
+			   		
 			   		<div class="info">
 			   			<span style="font-weight:bold;">${food.foodName }</span><br/>
-			   			<span style="color:red; font-size:12px;">现价：人民币${food.foodPrice }元</span><br/>
-			   			<span style="font-size:12px;">
-			   				${food.description }
-			   			</span><br/><br/><br/>
-			   			<a href="/WMXT/foodinfoservlet?op=details&foodid=${food.foodID }" style="position:absolute;bottom:10px;">
-			   			<img style="border:none;" src="images/detail_cn.gif" /></a>
+			   			<span style="color:red; font-size:12px;">人民币：${food.foodPrice }元</span><br/>
+			   			<span style="font-size:12px;">配料：${food.ingredient }</span><br/>
+			   			<span style="font-size:12px;">简介：${food.description }</span><br/>
+			   			<span style="font-size:12px;">已售：${food.soldNum }</span><br/>
+			   			<span style="font-size:12px;">点赞：${food.goodNum }</span><br/>
+			   			<span style="font-size:12px;">剩余：${food.isLeft }</span><br/><br/><br/>
+			   			
+			   			
+		   				<a href="/WMXT/addcarservlet?foodid=${food.foodID }" style="position:absolute;bottom:10px;">
+		   				<img src="images/buy_cn.gif" style="border:none;" /></a>
 			   		</div>
 			   		</li>
 			   		</c:forEach>
 			   	</ul>
 		   	</div>
 		   </div>
-	   </div>
-	   <div>
-	   <%@ include file="bottom.jsp" %>
 	   </div>
    </div>
   </body>

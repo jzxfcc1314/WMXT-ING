@@ -1,16 +1,19 @@
 package com.sxdx.vo;
 
 public class FoodInfo {
-	private String foodID;
+	private int foodID;
 	private String foodName;
-	private String remark;
-	private double foodPrice;	
-	private String description;	
+	private double foodPrice;
+	private String ingredient;
+	private String description;
+	private int soldNum;
+	private int goodNum;
+	private boolean isLeft;
 	private String foodImage;
-	public String getFoodID() {
+	public int getFoodID() {
 		return foodID;
 	}
-	public void setFoodID(String foodID) {
+	public void setFoodID(int foodID) {
 		this.foodID = foodID;
 	}
 	public String getFoodName() {
@@ -19,23 +22,41 @@ public class FoodInfo {
 	public void setFoodName(String foodName) {
 		this.foodName = foodName;
 	}
-	public String getRemark() {
-		return remark;
-	}
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
 	public double getFoodPrice() {
 		return foodPrice;
 	}
 	public void setFoodPrice(double foodPrice) {
 		this.foodPrice = foodPrice;
 	}
+	public String getIngredient() {
+		return ingredient;
+	}
+	public void setIngredient(String ingredient) {
+		this.ingredient = ingredient;
+	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public int getSoldNum() {
+		return soldNum;
+	}
+	public void setSoldNum(int soldNum) {
+		this.soldNum = soldNum;
+	}
+	public int getGoodNum() {
+		return goodNum;
+	}
+	public void setGoodNum(int goodNum) {
+		this.goodNum = goodNum;
+	}
+	public boolean getIsLeft() {
+		return isLeft;
+	}
+	public void setIsLeft(boolean isLeft) {
+		this.isLeft = isLeft;
 	}
 	public String getFoodImage() {
 		return foodImage;

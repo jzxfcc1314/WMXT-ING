@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>register.jsp</title>
 </head>
  <body style="width:760px; height:700px; text-align: center;">
 
@@ -20,19 +20,17 @@
 		   </div>
 		   <div style="width:600px; height:240px;float:right;">
 		   	<div style="height:20px; background-color:#AAB9BD">
-		   	我学我会网上订餐系统用户请直接登录
 		   	</div>
-		   	<form action="/WMXT/loginservlet?op=login" method="post" style="height: 129px; width:300px; ">
+		   	<form action="/WMXT/registerservlet?op=register" method="post" style="height: 129px; width:300px; ">
 		   		<br/>用户名：<input type="text" name="username" style="border:1px solid #666666; size: 17px;"  /><br/><br/>
-		   		密&nbsp;&nbsp;码:&nbsp;&nbsp;&nbsp;<input type="password" name="userpass"  style="border:1px solid #666666;size: 17px;" /><br/><br/>
-		   		<input type="submit" value="登录">
+		   		密&nbsp;&nbsp;码：&nbsp;&nbsp;&nbsp;<input type="password" name="userpass"  style="border:1px solid #666666;size: 17px;" /><br/><br/>
+		   		<br/>收餐地址：<input type="text" name="address" style="border:1px solid #666666; size: 17px;"  /><br/><br/>
+		   		<br/>联系电话：<input type="text" name="telephone" style="border:1px solid #666666; size: 17px;"  /><br/><br/>
+		   		<br/>头像：<input type="text" name="photo" style="border:1px solid #666666; size: 17px;"  /><br/><br/>
+		   		<input type="submit" value="注册">
 		   	</form>
 		   </div>
 	   </div>
-	   <div>
-	   <%@ include file="bottom.jsp" %>
-	   </div>
    </div>
- 
   </body>
 </html>
