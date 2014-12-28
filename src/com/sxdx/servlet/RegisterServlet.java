@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sxdx.dao.UserInfoDAO;
-
+/*
+ * server manipulates register process
+ */
 public class RegisterServlet extends HttpServlet{
 	
 	public RegisterServlet() {
@@ -22,23 +24,25 @@ public class RegisterServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		System.out.println("RegisterServlet");
+		System.out.println("#RegisterServlet(RegisterServlet.java)");
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
+		//get register info
 		String username=request.getParameter("username");
 		String userpass=request.getParameter("userpass");
 		String address=request.getParameter("address");
 		String telephone=request.getParameter("telephone");
 		String photo=request.getParameter("photo");
 		UserInfoDAO userDAO=new UserInfoDAO();
-		System.out.println(username);
-		System.out.println(userpass);
+		//add new user
 		boolean flag = userDAO.AddNewUser(username, userpass,address,telephone,photo);
-		if (flag) {
+		if (flag) //register success
+		{
 			System.out.println("Register success");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
-		else {
+		else  //register fail
+		{
 			System.out.println("Register failed");
 			response.sendRedirect("/WMXT/register.jsp");
 		}

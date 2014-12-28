@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8" contentType="text/html; charset=utf-8"%>
-
+<%@ page import = "com.sxdx.vo.UserInfo" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -22,10 +22,13 @@
   </head>
   
   <body style="width:760px; height:700px; text-align: center;">
-  <% double moneys=Double.parseDouble(request.getParameter("total")) ; %>
-  <% String allFoodInfo=request.getParameter("allFoodInfo") ; %>
+  <% HttpSession hs=request.getSession();%>
+  <% Double moneys=(Double)hs.getAttribute("total"); %>
+  <% String allFoodInfo=(String)hs.getAttribute("allFoodInfo");  %>
+  <% ArrayList<UserInfo> list1=(ArrayList<UserInfo>)session.getAttribute("list1"); %>
+  <% UserInfo uinfo=(UserInfo)list1.get(0); %>
 
-    <div style="width:760px; height:600px;text-align:center; ">
+    <div style="width:760px; height:0px;text-align:center; ">
 	   <div style="height:141px;">
 	   	<%@ include file="top.jsp" %>
 	   </div>
@@ -40,17 +43,17 @@
 		   	<div style="height:20px; background-color:#AAB9BD">
 		   	请填写并确认您的信息
 		   	</div>
-		   	<form action="/WMXT/foodinfoservlet?op=reg" method="post" style="border:1px solid red;">
+		   	<form action="/WMXT/foodinfoservlet?op=commit" method="post" style="border:1px solid red;">
 		   		<table >
-		   		<tr><td style="text-align:right;">订餐人：</td><td><input type="text" name="customerName"/></td></tr>
-		   		<tr><td style="text-align:right;">送餐地址：</td><td><input type="text" name="address"/></td></tr>
-		   		<tr><td style="text-align:right;">联系电话：</td><td><input type="text" name="telephone"/></td></tr>
+		   		<tr><td style="text-align:right;">订餐人：</td><td><input type="text" name="customerName" value="<%=uinfo.getLoginName() %>"/></td></tr>
+		   		<tr><td style="text-align:right;">送餐地址：</td><td><input type="text" name="address" value="<%=uinfo.getAddress() %>"/></td></tr>
+		   		<tr><td style="text-align:right;">联系电话：</td><td><input type="text" name="telephone" value="<%=uinfo.getTelephone() %>"/></td></tr>
 		   		<tr><td style="text-align:right;">菜品信息：</td><td><input type="text" name="allFoodInfo" value="<%=allFoodInfo %>"/></td></tr>
 		   		<tr><td style="text-align:right;">付款金额：</td><td><input type="text" name="totalPrice" value="<%=moneys %>" />元</td></tr>
-		   		<tr><td style="text-align:right;">订单留言：</td><td><textarea rows="3" cols="37"></textarea> </td></tr>
+		   		<tr><td style="text-align:right;">订单留言：</td><td><input type="text" name="wordLeft" value="<%="多加米" %>" /></td></tr>
 		   		
 		   		</table>
-		   		<input type="submit"value="提交"/>
+		   		<input type="submit"value="提交订单"/>
 		   	</form>
 		   	
 		   	<input type="button" value="返回购物车" onclick="returnCart()" />

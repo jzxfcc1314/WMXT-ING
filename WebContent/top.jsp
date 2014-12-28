@@ -11,21 +11,17 @@
 				<span style="font-size:32px; font-style:italic; font-weight:bold; color:red;">饱了么&nbsp;</span>
 				<span style="font-size:32px;  font-weight:bold;">网上订餐系统</span>
 			</div>
-			
-			
 		</div>
-		<div style=" height:42px; background-image:url(images/001.gif); background-repeat:repeat-x;" >
 			<center>
-			<ul style="list-style-type:none; width:540px; height:24px; margin:14px auto;">
-				<li style=" float:left;">|&nbsp;<a href="">网站首页</a>&nbsp;|&nbsp;</li>
-				<li style=" float:left;"><a href="#">关于我们</a>&nbsp;|&nbsp;</li>
-				<li style=" float:left;"><a href="#">订餐帮助</a>&nbsp;|&nbsp;</li>
-				<li style=" float:left;"><a href="#">网上订餐</a>&nbsp;|&nbsp;</li>
-				<li style=" float:left;"><a href="#">客服中心</a>&nbsp;|</li>
+			<ul style="list-style-type:none; width:760px; height:24px; margin:14px auto;">
+				<li style=" float:right;">|&nbsp;<a href="/WMXT/selfinfoservlet?op=logout">
+		   		<!img src="images/lcart_cn.gif"/>登出</a>&nbsp;|&nbsp;</li>
+				<li style=" float:right;"><a href="/WMXT/selfinfoservlet?op=selfinfo" >
+		   		<!img src="images/lcart_cn.gif"/>个人</a>&nbsp;|&nbsp;</li>
+
 			</ul>
 			</center>
-		</div>
-		
+		</div>	
 	</div>
 </body>
 </html>

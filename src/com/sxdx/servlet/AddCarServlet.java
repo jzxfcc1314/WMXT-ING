@@ -12,7 +12,9 @@ import javax.servlet.http.HttpSession;
 import com.sxdx.dao.FoodInfoDAO;
 import com.sxdx.vo.FoodInfo;
 import com.sxdx.vo.Item;
-
+/*
+ * server manipulates on cart
+ */
 public class AddCarServlet extends HttpServlet {
 	public AddCarServlet() {
 		super();
@@ -24,14 +26,20 @@ public class AddCarServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		System.out.println("#AddCarServlet(AddCarServlet.java)");
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
+		//get current user from session hs
+		HttpSession hs=request.getSession();
+		Integer user=(Integer)hs.getAttribute("usr"); 
+		//create new attribute cart and add it to session hs
+		HashMap map=(HashMap)hs.getAttribute("cart");
+
 		int foodid=Integer.parseInt(request.getParameter("foodid"));
 		FoodInfoDAO foodDAO = new FoodInfoDAO();
-		HttpSession session=request.getSession();
-		HashMap map=(HashMap)session.getAttribute("cart");
-		if(map==null)
+		//manipulate cart
+		if(map==null)//if cart is empty
 		{
 			map=new HashMap();
 			FoodInfo food=foodDAO.selectFoodById(foodid);
@@ -39,27 +47,27 @@ public class AddCarServlet extends HttpServlet {
 			item.setFoodInfo(food);
 			item.setCount(new Integer(1));
 			map.put(foodid, item);
-			session.setAttribute("cart", map);
+			hs.setAttribute("cart", map);
 		}else
 		{
-			if(map.containsKey(foodid))
+			if(map.containsKey(foodid))//if food exists in cart,then add count
 			{	
 				Item item=(Item)map.get(foodid);
 				item.setCount(item.getCount()+1);
 				map.put(foodid, item);
-				session.setAttribute("cart", map);
-			}else
-			{
-				
+				hs.setAttribute("cart", map);
+			}else //if food not exists in cart,then add food with count 1
+			{		
 				FoodInfo food=foodDAO.selectFoodById(foodid);
 				Item item=new Item();
 				item.setFoodInfo(food);
 				item.setCount(1);
 				map.put(foodid, item);
-				session.setAttribute("cart", map);
+				hs.setAttribute("cart", map);
 			}
 		}
 		request.getRequestDispatcher("/foodinfoservlet?op=login").forward(request, response);
+
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -23,9 +23,9 @@
 	
   </head>
   
-  <body style="width:760px; height:700px; text-align: center;">
+  <body style="width:760px; height:0px; text-align: center;">
 
-    <div style="width:760px; height:600px; text-align:center; ">
+    <div style="width:760px; height:0px; text-align:center; ">
 	   <div style="height:141px;">
 	   	<%@ include file="top.jsp" %>
 	   </div>
@@ -44,9 +44,11 @@
 		   	<div>
 		   		<table >
 		   		<tr style="background-color:#b6aeae;"><th>商品编号</th><th>商品名称</th><th>商品单价</th><th>商品数量</th><th>商品金额</th></tr>
-		   		<% double total=0;  pageContext.setAttribute("total",total);
+		   		<% HttpSession hs=request.getSession();
 		   		%>
-		   		<% String allFoodInfo="";  pageContext.setAttribute("allFoodInfo",allFoodInfo);
+		   		<% Double total=0.0;  hs.setAttribute("total",total);
+		   		%>
+		   		<% String allFoodInfo="";  hs.setAttribute("allFoodInfo",allFoodInfo);
 		   		%>
 		   		<c:forEach var="food"  items="${sessionScope.cart}"  >
 		   		<tr>
@@ -58,7 +60,8 @@
 		   		</tr>
 		   		</c:forEach>
 		   		
-		   		<%	HashMap map=(HashMap)session.getAttribute("cart"); 
+		   		<%	
+		   			HashMap map=(HashMap)hs.getAttribute("cart"); 
 		   		 if(map!=null){
    					Set keys=map.keySet(); 
    					Object[] kes = keys.toArray(); 
@@ -68,8 +71,8 @@
 				   			total=total+item.getFoodInfo().getFoodPrice()*item.getCount();
 				   			allFoodInfo=allFoodInfo+item.getFoodInfo().getFoodName()+"，"
 				   						+item.getFoodInfo().getFoodPrice()+"元/份，"+item.getCount()+"份；";
-				   		 	pageContext.setAttribute("total",total);
-				   		 	pageContext.setAttribute("allFoodInfo",allFoodInfo);
+				   		 	hs.setAttribute("total",total);
+				   		 	hs.setAttribute("allFoodInfo",allFoodInfo);
 			   			}
    					}  
 		   		%>
@@ -91,7 +94,7 @@
 		   			<script type="text/javascript">
 						   function endmoney()
 						   {
-						   	window.location="/WMXT/endmoney.jsp?total=${pageScope.total }&allFoodInfo=${pageScope.allFoodInfo }";
+							   window.location="/WMXT/foodinfoservlet?op=order";
 						   }
 					</script>
 		   		</div>

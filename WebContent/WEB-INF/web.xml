@@ -9,6 +9,10 @@
     <servlet-class>com.sxdx.servlet.RegisterServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>SelfInfoServlet</servlet-name>
+    <servlet-class>com.sxdx.servlet.SelfInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.sxdx.servlet.LoginServlet</servlet-class>
   </servlet>
@@ -21,8 +25,11 @@
     <servlet-class>com.sxdx.servlet.AddCarServlet</servlet-class>
   </servlet>
 
-
-	<servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelfInfoServlet</servlet-name>
+    <url-pattern>/selfinfoservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/registerservlet</url-pattern>
   </servlet-mapping>

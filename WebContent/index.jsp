@@ -33,7 +33,7 @@
 		   	<div style="height:20px; background-color:#AAB9BD">
 		   	饱了么 网上订餐系统用户请直接登录
 		   	</div>
-		   	<form action="/WMXT/loginservlet?op=login" method="post" style="height: 129px; width:300px; ">
+		   	<form action="/WMXT/loginservlet" method="post" style="height: 129px; width:300px; ">
 		   		<br/>用户名：<input type="text" name="username" style="border:1px solid #666666; size: 17px;"  /><br/><br/>
 		   		密&nbsp;&nbsp;码：&nbsp;&nbsp;&nbsp;<input type="password" name="userpass"  style="border:1px solid #666666;size: 17px;" /><br/><br/>
 		   		<input type="submit" value="登录">

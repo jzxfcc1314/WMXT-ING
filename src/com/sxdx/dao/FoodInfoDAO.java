@@ -6,8 +6,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.sxdx.vo.FoodInfo;
-
+/*
+ * interface to manupilate table "foodinfo"
+ */
 public class FoodInfoDAO {
+	//select a specific food by its id
 	public FoodInfo selectFoodById(int foodid)
 	{
 		Connection conn=null;
@@ -16,12 +19,14 @@ public class FoodInfoDAO {
 		FoodInfo food=null;
 		try
 		{
+			System.out.println("#select food(FoodInfoDAO.java)");
 			conn=BaseDAO.getConn();
 			ps=conn.prepareStatement("select * from foodInfo where foodID="+foodid+"");
 			rs=ps.executeQuery();
 			if(rs.next())
 			{
 				food=new FoodInfo();
+				System.out.println(rs.getString(2));
 				food.setFoodID(rs.getInt(1));
 				food.setFoodName(rs.getString(2));
 				food.setFoodPrice(rs.getDouble(3));
@@ -41,7 +46,7 @@ public class FoodInfoDAO {
 		}
 		return food;
 	}
-
+	//select all food in the table 
 	public ArrayList<FoodInfo> selectAllFood()
 	{
 		Connection conn=null;
@@ -50,6 +55,7 @@ public class FoodInfoDAO {
 		ArrayList<FoodInfo> foodlist=new ArrayList<FoodInfo>();
 		try
 		{
+			System.out.println("#select all(FoodInfoDAO.java)");
 			conn=BaseDAO.getConn();
 			ps=conn.prepareStatement("select * from foodinfo");
 			rs=ps.executeQuery();

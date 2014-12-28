@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body style="width:760px; height:700px; text-align: center;">
+  <body style="width:760px; height:0px; text-align: center;">
   <% 
   if(request.getParameter("total")!=null){
   double moneys=Double.parseDouble(request.getParameter("total")) ; 
@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   }
   %>
 
-    <div style="width:760px; height:600px; text-align:center; ">
+    <div style="width:760px; height:0px; text-align:center; ">
 	   <div style="height:141px;">
 	   	<%@ include file="top.jsp" %>
 	   </div>

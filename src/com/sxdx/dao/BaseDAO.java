@@ -5,19 +5,17 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+/*
+ * load driver and connect database
+ */
 public class BaseDAO {
 	public static Connection getConn()
 	{
 		Connection conn=null;
 		try {
-			System.out.println("BaseDAO");
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("Driver loaded");
-			conn=DriverManager.getConnection("jdbc:mysql://localhost/waimai","root","jizhixiang");
-			System.out.println("Database connected");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost/waimai","root","");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return conn;
@@ -29,7 +27,6 @@ public class BaseDAO {
 			try {
 				rs.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -38,7 +35,6 @@ public class BaseDAO {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -47,7 +43,6 @@ public class BaseDAO {
 			try {
 				conn.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

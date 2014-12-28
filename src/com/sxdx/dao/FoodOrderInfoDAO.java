@@ -5,9 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.sxdx.vo.FoodOrderInfo;
-
+/*
+ * interface to manupilate table "foodorderinfo"
+ */
 public class FoodOrderInfoDAO {
-	//ÃÓ–¥∂©≤Õ–≈œ¢
+	//commit the order
 	public boolean regUserInfo(FoodOrderInfo foodOrderinfo)
 	{
 		Connection conn=null;
@@ -15,6 +17,7 @@ public class FoodOrderInfoDAO {
 		boolean flag=false;
 		try
 		{
+			System.out.println("#commit order(FoodOrderInfoDAO.java)");
 			conn=BaseDAO.getConn();
 			System.out.println("begin insert into order");
 			ps=conn.prepareStatement("insert into foodOrderInfo "

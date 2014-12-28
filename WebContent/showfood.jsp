@@ -32,7 +32,7 @@
    		}
 
     %>
-    <div style="width:760px; height:600px;  align="center">
+    <div style="width:760px; height:px;  align="center">
 	   <div style="height:141px;">
 	   	<%@ include file="top.jsp" %>
 	   </div>
@@ -68,7 +68,7 @@
 			   			<span style="font-size:12px;">剩余：${food.isLeft }</span><br/><br/><br/>
 			   			
 			   			
-		   				<a href="/WMXT/addcarservlet?foodid=${food.foodID }" style="position:absolute;bottom:10px;">
+		   				<a href="/WMXT/addcarservlet?op=add&foodid=${food.foodID }" style="position:absolute;bottom:10px;">
 		   				<img src="images/buy_cn.gif" style="border:none;" /></a>
 			   		</div>
 			   		</li>
