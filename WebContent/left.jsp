@@ -41,12 +41,7 @@
 			document.getElementById("nowTime").innerHTML=year+"年"+(month+1)+"月"+date+"日"+"  "+"星期"+week;
 		}
 	</script>
-	<br/>
-	<div style="width:155px; height:4px; background-image:url(images/003.gif); background-repeat:repeat-x;">
-	</div>
-	<br/>
-	<div style="width:155px; height:4px; background-image:url(images/003.gif); background-repeat:repeat-x;">
-	</div>
+
 </div>
 </body>
 

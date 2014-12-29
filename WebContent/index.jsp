@@ -21,8 +21,9 @@
    <div style="width:760px; align="center">
 	   <div style="height:141px;">
 	   	<%@ include file="top.jsp" %>
-	   </div>	      
+	   </div>  
 	   <div id="centent" style="width:760px;height:100%; position:relative;">
+	   <div style="background-image:url(images/background.jpg); width:800px; height:400px;float:left;">
 		   <div style=" width:160px; height:240px; position:absolute; left:0px;top:0px; float:left;">
 		   <%@ include file="left.jsp" %>
 		   </div>

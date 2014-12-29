@@ -8,7 +8,7 @@
 			<div style="background-image:url(images/logo.jpg); width:220px; height:99px;float:left;">
 			</div>
 			<div style="float:right; padding-top:35px; width:530px; ">&nbsp; 
-				<span style="font-size:32px; font-style:italic; font-weight:bold; color:red;">饱了么&nbsp;</span>
+				<span style="font-size:40px;  font-weight:bold; color:red;">饱了么&nbsp;</span>
 				<span style="font-size:32px;  font-weight:bold;">网上订餐系统</span>
 			</div>
 		</div>
