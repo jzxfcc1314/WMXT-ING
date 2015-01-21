@@ -82,4 +82,64 @@ public class FoodInfoDAO {
 		}
 		return foodlist;
 	}
+	
+	//update soldNum information
+	public boolean UpdateSoldnum(int foodID,int soldnum){
+		Connection conn=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		boolean flag = false;
+		try
+		{
+			conn=BaseDAO.getConn();
+			System.out.println("#register(FoodInfoDAO.java)");
+			System.out.println(foodID);
+			ps=conn.prepareStatement("update FoodInfo set soldNum=? where foodID="+foodID+"");
+			ps.setInt(1, soldnum);
+			int sult=ps.executeUpdate();
+			System.out.println(sult);
+			if(sult>0)
+			{
+				flag=true;
+			}
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}finally
+		{
+			BaseDAO.closeAll(conn, ps, rs);
+		}
+		return flag;
+	}
+	
+	//update goodNum information
+		public boolean UpdateGoodnum(int foodID,int goodnum){
+			Connection conn=null;
+			PreparedStatement ps=null;
+			ResultSet rs=null;
+			boolean flag = false;
+			try
+			{
+				conn=BaseDAO.getConn();
+				System.out.println("#register(FoodInfoDAO.java)");
+				System.out.println(foodID);
+				ps=conn.prepareStatement("update FoodInfo set goodNum=? where foodID="+foodID+"");
+				ps.setInt(1, goodnum);
+				int sult=ps.executeUpdate();
+				System.out.println(sult);
+				if(sult>0)
+				{
+					flag=true;
+				}
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}finally
+			{
+				BaseDAO.closeAll(conn, ps, rs);
+			}
+			return flag;
+		}
+		
+		
 }

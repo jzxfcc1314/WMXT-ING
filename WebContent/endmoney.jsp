@@ -48,8 +48,8 @@
 		   		<tr><td style="text-align:right;">订餐人：</td><td><input type="text" name="customerName" value="<%=uinfo.getLoginName() %>"/></td></tr>
 		   		<tr><td style="text-align:right;">送餐地址：</td><td><input type="text" name="address" value="<%=uinfo.getAddress() %>"/></td></tr>
 		   		<tr><td style="text-align:right;">联系电话：</td><td><input type="text" name="telephone" value="<%=uinfo.getTelephone() %>"/></td></tr>
-		   		<tr><td style="text-align:right;">菜品信息：</td><td><input type="text" name="allFoodInfo" value="<%=allFoodInfo %>"/></td></tr>
-		   		<tr><td style="text-align:right;">付款金额：</td><td><input type="text" name="totalPrice" value="<%=moneys %>" />元</td></tr>
+		   		<tr><td style="text-align:right;">菜品信息：</td><td><input type="text" name="allFoodInfo" readonly="true" value="<%=allFoodInfo %>"/></td></tr>
+		   		<tr><td style="text-align:right;">付款金额：</td><td><input type="text" name="totalPrice" readonly="true" value="<%=moneys %>" />元</td></tr>
 		   		<tr><td style="text-align:right;">订单留言：</td><td><input type="text" name="wordLeft" value="<%="多加米" %>" /></td></tr>
 		   		
 		   		</table>

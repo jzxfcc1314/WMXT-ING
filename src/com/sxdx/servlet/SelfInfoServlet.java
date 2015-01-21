@@ -68,10 +68,9 @@ public class SelfInfoServlet extends HttpServlet {
 			String userpass=request.getParameter("loginPass");
 			String address=request.getParameter("address");
 			String telephone=request.getParameter("telephone");
-			String photo=request.getParameter("photo");
 			//update table UserInfo
 			UserInfoDAO uinfoDAO=new UserInfoDAO();
-			boolean flag = uinfoDAO.UpdateUser(user, username, userpass,address,telephone,photo);
+			boolean flag = uinfoDAO.UpdateUser(user, username, userpass,address,telephone,"NULL");
 			if (flag) //info change success
 			{
 				System.out.println("Change success");

@@ -2,6 +2,8 @@ package com.sxdx.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +16,7 @@ import com.sxdx.dao.FoodOrderInfoDAO;
 import com.sxdx.dao.UserInfoDAO;
 import com.sxdx.vo.FoodInfo;
 import com.sxdx.vo.FoodOrderInfo;
+import com.sxdx.vo.Item;
 import com.sxdx.vo.UserInfo;
 /*
  * server corresponds to foodinfo
@@ -52,9 +55,25 @@ public class FoodInfoServlet extends HttpServlet {
 			double totalPrice=Double.parseDouble(request.getParameter("totalPrice"));
 			FoodOrderInfo foodOrderinfo=new FoodOrderInfo(customerName, address, telephone, allFoodInfo, totalPrice, worldLeft, state);
 			FoodOrderInfoDAO forDAO =new FoodOrderInfoDAO();
+			FoodInfoDAO foodinfoDAO=new FoodInfoDAO();
+			FoodInfo foodinfo = new FoodInfo();
 			if(forDAO.regUserInfo(foodOrderinfo))
 			{
 				request.getRequestDispatcher("/end.jsp").forward(request, response);
+				//modify the number of food sold
+				
+				HashMap map=(HashMap)hs.getAttribute("cart"); 
+		   		if(map!=null){
+		   			Set keys=map.keySet(); 
+		   			Object[] kes = keys.toArray(); 
+		   			for(int i=0;i<keys.size();i++)
+			   		{
+				   		Item item=(Item)map.get(kes[i]);
+				   		foodinfo = foodinfoDAO.selectFoodById(item.getFoodInfo().getFoodID());
+				   		foodinfoDAO.UpdateSoldnum(item.getFoodInfo().getFoodID(),item.getCount()+foodinfo.getSoldNum());
+			   		}
+  				} 
+  					
 			}else
 			{
 				request.setAttribute("fail", "Ê§°Ü");
@@ -82,7 +101,39 @@ public class FoodInfoServlet extends HttpServlet {
 			request.setAttribute("usr",user);
 			request.getRequestDispatcher("/showfood.jsp").forward(request, response);
 		}
+		if(op.equals("add"))//add count in cart
+		{
+			int fid=Integer.parseInt(request.getParameter("foodID"));
+			System.out.println("foodID "+fid);
+			HashMap map=(HashMap)hs.getAttribute("cart"); 
+			Item item=(Item)map.get(fid);
+			item.setCount(item.getCount()+1);
+			response.sendRedirect("/WMXT/showcart.jsp");
+
+		}
 		
+		if(op.equals("reduce"))//reduce count in cart
+		{
+			int fid=Integer.parseInt(request.getParameter("foodID"));
+			System.out.println("foodID "+fid);
+			HashMap map=(HashMap)hs.getAttribute("cart"); 
+			Item item=(Item)map.get(fid);
+			if(item.getCount()>0)
+				item.setCount(item.getCount()-1);
+			response.sendRedirect("/WMXT/showcart.jsp");
+
+		}
+		
+		if(op.equals("good"))//add goodnum of food
+		{
+			int fid=Integer.parseInt(request.getParameter("foodID"));
+			System.out.println("foodID "+fid);
+			FoodInfoDAO foodinfoDAO=new FoodInfoDAO();
+			FoodInfo foodinfo = new FoodInfo();
+			foodinfo = foodinfoDAO.selectFoodById(fid);
+	   		foodinfoDAO.UpdateGoodnum(fid,foodinfo.getGoodNum()+1);
+	   		response.sendRedirect("/WMXT/foodinfoservlet?op=login");
+		}
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

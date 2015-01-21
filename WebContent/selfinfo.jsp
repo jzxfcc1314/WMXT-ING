@@ -49,7 +49,6 @@
 		   		<tr><td style="text-align:right;">用户密码：</td><td><input type="text" name="loginPass" value="<%=uinfo.getLoginPass() %>"/></td></tr>
 		   		<tr><td style="text-align:right;">用户地址：</td><td><input type="text" name="address" value="<%=uinfo.getAddress() %>"/></td></tr>
 		   		<tr><td style="text-align:right;">用户电话：</td><td><input type="text" name="telephone" value="<%=uinfo.getTelephone() %>" /></td></tr>
-		   		<tr><td style="text-align:right;">用户头像：</td><td><textarea rows="3" cols="photo"></textarea> </td></tr>
 		   		
 		   		</table>
 		   		<input type="submit"value="确定更改"/>

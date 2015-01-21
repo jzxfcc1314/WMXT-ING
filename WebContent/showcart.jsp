@@ -43,8 +43,9 @@
 		   	
 		   	<div>
 		   		<table >
-		   		<tr style="background-color:#b6aeae;"><th>商品编号</th><th>商品名称</th><th>商品单价</th><th>商品数量</th><th>商品金额</th></tr>
+		   		<tr style="background-color:#b6aeae;"><th>商品编号</th><th>商品名称</th><th>商品单价</th><th>商品数量</th><th>商品金额</th><th>增减数量</th></tr>
 		   		<% HttpSession hs=request.getSession();
+		   		   HashMap map=(HashMap)hs.getAttribute("cart"); 
 		   		%>
 		   		<% Double total=0.0;  hs.setAttribute("total",total);
 		   		%>
@@ -57,11 +58,25 @@
 		   		<td>${food.value.foodInfo.foodPrice }</td>
 		   		<td>${food.value.count }</td>
 		   		<td>${food.value.foodInfo.foodPrice * food.value.count }</td>
+		   		<td><input type="button" value="增加" onclick="add('${food.key}')" />
+		   			<script type="text/javascript">
+						   function add(key)
+						   {
+							   window.location.href="/WMXT/foodinfoservlet?op=add&foodID="+key;
+						   }
+				   </script>
+				   <input type="button" value="减少" onclick="reduce('${food.key}')" />
+		   			<script type="text/javascript">
+						   function reduce(key)
+						   {
+						   		window.location.href="/WMXT/foodinfoservlet?op=reduce&foodID="+key;
+						   }
+				   </script>
+			    <td>
 		   		</tr>
 		   		</c:forEach>
 		   		
 		   		<%	
-		   			HashMap map=(HashMap)hs.getAttribute("cart"); 
 		   		 if(map!=null){
    					Set keys=map.keySet(); 
    					Object[] kes = keys.toArray(); 

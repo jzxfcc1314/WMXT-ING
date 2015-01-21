@@ -32,10 +32,14 @@ public class RegisterServlet extends HttpServlet{
 		String userpass=request.getParameter("userpass");
 		String address=request.getParameter("address");
 		String telephone=request.getParameter("telephone");
-		String photo=request.getParameter("photo");
+		String reuserpass=request.getParameter("reuserpass");
 		UserInfoDAO userDAO=new UserInfoDAO();
 		//add new user
-		boolean flag = userDAO.AddNewUser(username, userpass,address,telephone,photo);
+		boolean flag;
+		if(userpass.equals(reuserpass))
+			flag = userDAO.AddNewUser(username, userpass,address,telephone,"NULL");
+		else
+			flag = false;
 		if (flag) //register success
 		{
 			System.out.println("Register success");

@@ -68,7 +68,10 @@
 			   			<span style="font-size:12px;">剩余：${food.isLeft }</span><br/><br/><br/>
 			   			
 			   			
-		   				<a href="/WMXT/addcarservlet?op=add&foodid=${food.foodID }" style="position:absolute;bottom:10px;">
+		   				<a href="/WMXT/addcarservlet?op=add&foodid=${food.foodID }" style="position:absolute;bottom:20px;">
+		   				<img src="images/buy_cn.gif" style="border:none;" /></a>
+		   				
+		   				<a href="/WMXT/foodinfoservlet?op=good&foodID=${food.foodID }" style="position:absolute;bottom:0px;">
 		   				<img src="images/buy_cn.gif" style="border:none;" /></a>
 			   		</div>
 			   		</li>
