@@ -2,12 +2,14 @@ package com.sxdx.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 import com.sxdx.dao.FoodInfoDAO;
 import com.sxdx.dao.FoodOrderInfoDAO;
@@ -74,16 +76,38 @@ public class SelfInfoServlet extends HttpServlet {
 			if (flag) //info change success
 			{
 				System.out.println("Change success");
+				Object[] options = { "确定" }; 
+				JOptionPane.showOptionDialog(null, "点击确定返回个人信息", "修改成功", 
+				JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, 
+				null, options, options[0]); 
 				response.sendRedirect("/WMXT/selfinfoservlet?op=selfinfo" );
 			}
 			else  //info change fail or current updated
 			{
+				Object[] options = { "确定" }; 
+				JOptionPane.showOptionDialog(null, "点击确定返回个人信息", "修改失败", 
+				JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, 
+				null, options, options[0]); 
 				System.out.println("Change failed or Current updated");
 				response.sendRedirect("/WMXT/selfinfoservlet?op=selfinfo");
 			}
 			
 		}
-		
+		else if(op.equals("history"))//if user changes his info
+		{	
+			//get current userinfo
+			UserInfoDAO uinfoDAO = new UserInfoDAO();
+			UserInfo uinfo = new UserInfo();
+			uinfo = uinfoDAO.GetUserInfo(user);
+			
+			//get historyorderinfo based in userinfo
+			FoodOrderInfoDAO orderinfoDAO = new FoodOrderInfoDAO();
+			ArrayList<FoodOrderInfo> orderlist = new ArrayList<FoodOrderInfo>();
+			orderlist = orderinfoDAO.selectAllOrder(uinfo.getLoginName());
+			request.setAttribute("orderlist", orderlist);
+			request.getRequestDispatcher("/historyorder.jsp").forward(request, response);
+			
+		}
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
