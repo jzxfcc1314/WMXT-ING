@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 
 import com.sxdx.dao.UserInfoDAO;
 /*
@@ -42,13 +41,9 @@ public class LoginServlet extends HttpServlet {
 			HttpSession hs=request.getSession();//create session hs 
 			hs.setAttribute("usr",user);//add attribute user to the session with value userID
 			request.getRequestDispatcher("/foodinfoservlet?op=login").forward(request, response);
-		}else//login fail
+		}else//lohin fail
 		{
 			System.out.println("Login failed");
-			Object[] options = { "确定" }; 
-			JOptionPane.showOptionDialog(null, "用户名密码错误", "登录失败", 
-			JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, 
-			null, options, options[0]); 
 			response.sendRedirect("/WMXT/index.jsp");
 		}
 	}

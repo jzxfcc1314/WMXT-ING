@@ -1,7 +1,5 @@
 package com.sxdx.vo;
 
-
-
 public class FoodOrderInfo {
 	private int orderID;
 	private String customerName;
@@ -59,7 +57,6 @@ public class FoodOrderInfo {
 	public void setState(String state) {
 		this.state = state;
 	}
-
 	public FoodOrderInfo(String customerName, String address,String telephone, 
 			String allFoodInfo, double totalPrice, String wordLeft, String state) {
 		super();
@@ -70,10 +67,5 @@ public class FoodOrderInfo {
 		this.totalPrice = totalPrice;
 		this.wordLeft = wordLeft;
 		this.state = state;
-
-	}
-	public FoodOrderInfo() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 }

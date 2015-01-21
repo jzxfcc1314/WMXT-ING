@@ -1,10 +1,7 @@
 package com.sxdx.servlet;
 
 import java.io.IOException;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -49,13 +46,11 @@ public class FoodInfoServlet extends HttpServlet {
 		
 		if(op.equals("commit"))//process order
 		{
-			Calendar ca = Calendar.getInstance();
 			String customerName=request.getParameter("customerName");
 			String address=request.getParameter("address");
 			String telephone=request.getParameter("telephone");
 			String allFoodInfo=request.getParameter("allFoodInfo");
-			String worldLeft=request.getParameter("wordLeft");
-			String dateinfo=(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format((Date)ca.getTime());
+			String worldLeft=request.getParameter("worldLeft");
 			String state="订单已提交";
 			double totalPrice=Double.parseDouble(request.getParameter("totalPrice"));
 			FoodOrderInfo foodOrderinfo=new FoodOrderInfo(customerName, address, telephone, allFoodInfo, totalPrice, worldLeft, state);
